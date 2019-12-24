@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2300BB1821CD236F0089C3FD /*  ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2300BB1721CD236F0089C3FD /*  ViewController.m */; };
+		2316583921D0FE8E00D93D3C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2316583821D0FE8E00D93D3C /* libsqlite3.tbd */; };
+		2316583D21D0FFD500D93D3C /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2316583C21D0FFD500D93D3C /* SQLiteManager.m */; };
+		2316584021D104B400D93D3C /* DBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2316583F21D104B400D93D3C /* DBUtil.m */; };
 		23857D0321CF843A00C4F099 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 23857D0221CF843A00C4F099 /* StringUtil.m */; };
 		23A1458E21CFB14100AFB23F /* Asserts.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A1458D21CFB14100AFB23F /* Asserts.xcassets */; };
 		23C021EF21C35459003B0E8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C021EE21C35459003B0E8A /* AppDelegate.m */; };
@@ -38,6 +41,11 @@
 
 /* Begin PBXFileReference section */
 		2300BB1721CD236F0089C3FD /*  ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = " ViewController.m"; sourceTree = "<group>"; };
+		2316583821D0FE8E00D93D3C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2316583B21D0FF4300D93D3C /* SQLiteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		2316583C21D0FFD500D93D3C /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		2316583E21D101EF00D93D3C /* DBUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBUtil.h; sourceTree = "<group>"; };
+		2316583F21D104B400D93D3C /* DBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUtil.m; sourceTree = "<group>"; };
 		23857D0221CF843A00C4F099 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		23857D0421CF863500C4F099 /* StringUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		23A1458D21CFB14100AFB23F /* Asserts.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asserts.xcassets; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2316583921D0FE8E00D93D3C /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2316583721D0FE8D00D93D3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2316583821D0FE8E00D93D3C /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2316583A21D0FF1300D93D3C /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				2316583B21D0FF4300D93D3C /* SQLiteManager.h */,
+				2316583C21D0FFD500D93D3C /* SQLiteManager.m */,
+				2316583E21D101EF00D93D3C /* DBUtil.h */,
+				2316583F21D104B400D93D3C /* DBUtil.m */,
+			);
+			name = sqlite;
+			sourceTree = "<group>";
+		};
+		236FC1562287CB5C00470E64 /* graph */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = graph;
+			sourceTree = "<group>";
+		};
 		23857D0121CF83DF00C4F099 /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +135,7 @@
 				23C0220921C35459003B0E8A /* EncryptUtilTests */,
 				23C0221421C35459003B0E8A /* EncryptUtilUITests */,
 				23C021EB21C35459003B0E8A /* Products */,
+				2316583721D0FE8D00D93D3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +152,8 @@
 		23C021EC21C35459003B0E8A /* EncryptUtil */ = {
 			isa = PBXGroup;
 			children = (
+				236FC1562287CB5C00470E64 /* graph */,
+				2316583A21D0FF1300D93D3C /* sqlite */,
 				23857D0121CF83DF00C4F099 /* util */,
 				23C021ED21C35459003B0E8A /* AppDelegate.h */,
 				23C021EE21C35459003B0E8A /* AppDelegate.m */,
@@ -220,7 +258,7 @@
 		23C021E221C35459003B0E8A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = tree;
 				TargetAttributes = {
 					23C021E921C35459003B0E8A = {
@@ -229,7 +267,7 @@
 					};
 					23C0220521C35459003B0E8A = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 23C021E921C35459003B0E8A;
 					};
 					23C0221021C35459003B0E8A = {
@@ -295,7 +333,9 @@
 				2300BB1821CD236F0089C3FD /*  ViewController.m in Sources */,
 				23C021F221C35459003B0E8A /* main.m in Sources */,
 				23C021FB21C35459003B0E8A /* Document.xcdatamodeld in Sources */,
+				2316583D21D0FFD500D93D3C /* SQLiteManager.m in Sources */,
 				23C021EF21C35459003B0E8A /* AppDelegate.m in Sources */,
+				2316584021D104B400D93D3C /* DBUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +392,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -360,7 +402,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -400,7 +446,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -408,7 +456,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -438,7 +490,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EncryptUtil/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatress.common.EncryptUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -451,7 +503,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EncryptUtil/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatress.common.EncryptUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -461,11 +513,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2XLW7B46G;
 				INFOPLIST_FILE = EncryptUtilTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatress.common.EncryptUtilTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptUtil.app/Contents/MacOS/EncryptUtil";
 			};
 			name = Debug;
@@ -474,11 +530,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2XLW7B46G;
 				INFOPLIST_FILE = EncryptUtilTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatress.common.EncryptUtilTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptUtil.app/Contents/MacOS/EncryptUtil";
 			};
 			name = Release;

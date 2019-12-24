@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "StringUtil.h"
+#import "DBUtil.h"
 
 @implementation ViewController
 @synthesize typeMenuItem = _typeMenuItem;
@@ -70,10 +71,14 @@
     alert.icon = [[NSImage alloc] initWithContentsOfFile:@""];
     alert.informativeText = @"THIS IS MY MAC APP";
     NSLog(@"THIS IS MY APP");
-    NSString* basicUrl = @"http://basisdata-others.api.test.91gfd.cn/crypt?";
+    NSString* basicUrl = @"http://basisdata-others.test.treefintech.com/crypt?";
     if ([_dataTextFiled stringValue].length > 0) {
         basicUrl = [[basicUrl stringByAppendingString: @"type="] stringByAppendingString: _method];
         basicUrl = [[basicUrl stringByAppendingString: @"&data="] stringByAppendingString: [[_dataTextFiled stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        
+        basicUrl = [basicUrl stringByReplacingOccurrencesOfString:@" " withString: @"%20"];
+        basicUrl = [basicUrl stringByReplacingOccurrencesOfString:@"+" withString: @"%2B"];
+        
     }
     NSLog(@"url=%@", basicUrl);
     NSURL* url = [NSURL URLWithString: basicUrl];
@@ -93,14 +98,19 @@
         NSDictionary* dic = [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingMutableContainers error:&jsonError];
         NSString* jsonText = [NSString stringWithFormat:@"%@", dic];
         NSLog(@"response text=%@", [StringUtil handleSpaceAndEnterElementWithString: jsonText]);
+        jsonText = [StringUtil replaceUnicode: jsonText];
         [self showResult: jsonText];
     }];
-    
+    DBUtil* dbUtil = [[DBUtil alloc] init];
+    BOOL yes = [dbUtil openDBWithName: @""];
+    NSLog(@"open SQLite db %@", yes ? @"succeed" : @"fail");
+    [dbUtil isTableExist:@"t_record"];
+
     [dataTask resume];
 }
 
 - (void)showResult: (NSString*) result {
-    [_resultTextView setNeedsDisplay: true];
+    // [_resultTextView setNeedsDisplay: true];
     [self performSelectorOnMainThread:@selector(showResultInMain:)
                         withObject: result
                         waitUntilDone:NO];
@@ -109,7 +119,6 @@
 - (void)showResultInMain: (NSString*) result {
     result = [StringUtil handleSpaceAndEnterElementWithString: result];
     _resultTextView.string = result;
-
 }
 
 @end

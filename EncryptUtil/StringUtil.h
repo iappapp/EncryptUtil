@@ -15,4 +15,5 @@
 @interface StringUtil : NSObject
 // 替换NSString字符串的换行/括号/引号
 +(NSString*) handleSpaceAndEnterElementWithString: (NSString*) string;
++(NSString*) replaceUnicode:(NSString *) unicodeStr;
 @end
